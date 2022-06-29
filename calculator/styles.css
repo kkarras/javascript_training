@@ -1,0 +1,43 @@
+html {
+    padding: 1em;
+}
+
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.display {
+    text-align: right;
+    color: white;
+    font-size: 120px;
+}
+
+button {
+    height: 140px;
+    width: 140px;
+    border-radius: 70px;
+    line-height: 140px;
+    border: none;
+    margin: 10px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.darkGray {
+    background-color: #333333;
+    color: white;
+}
+.lightGray {
+    background-color: #a5a5a5;
+    color: black;
+}
+.orange {
+    background-color: #f1a43c;
+    color: white;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}

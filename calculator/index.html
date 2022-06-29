@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>My JavaScript Calculator</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="myScript.js"></script>
+    </head>
+    <body>
+        <h1>My JavaScript Calculator</h1>
+        <p>A simple calculator exercise to teach some basic JavaScript concepts</p>
+        <table class="center">
+            <tr>
+                <td colspan="4" class="display"><span id="display">0</span></td>
+            </tr>
+            <tr>
+                <td><button onclick="allClear()" class="lightGray">AC</button></td>
+                <td><button onclick="posNeg()" class="lightGray">+/-</button></td>
+                <td><button onclick="percent()" class="lightGray">%</button></td>
+                <td><button onclick="operator('÷')" class="orange">÷</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="input(7)" class="darkGray">7</button></td>
+                <td><button onclick="input(8)" class="darkGray">8</button></td>
+                <td><button onclick="input(9)" class="darkGray">9</button></td>
+                <td><button onclick="operator('x')" class="orange">x</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="input(4)" class="darkGray">4</button></td>
+                <td><button onclick="input(5)" class="darkGray">5</button></td>
+                <td><button onclick="input(6)" class="darkGray">6</button></td>
+                <td><button onclick="operator('-')" class="orange">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="input(1)" class="darkGray">1</button></td>
+                <td><button onclick="input(2)" class="darkGray">2</button></td>
+                <td><button onclick="input(3)" class="darkGray">3</button></td>
+                <td><button onclick="operator('+')" class="orange">+</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="input(0)" class="darkGray">0</button></td>
+                <td><button onclick="input('.')" class="darkGray">.</button></td>
+                <td><button onclick="operator('=')" class="orange">=</button></td>
+            </tr>
+        </table>
+    </body>
+</html>
