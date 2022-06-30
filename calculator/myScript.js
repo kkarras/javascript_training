@@ -17,9 +17,7 @@ function input(num) {
   console.log("input:" + num);
 
   //check for decimal
-  if (currentValue.includes(".") && num === ".") {
-    return;
-  }
+  // if (currentValue.includes(".") && num === ".") return;
 
   if (currentValue === "0") {
     if (num === ".") {
@@ -31,12 +29,14 @@ function input(num) {
   } else {
     if (currentOperator) {
       if (inputValue) {
+        if (inputValue.includes(".") && num === ".") return;
         inputValue = inputValue + num;
       } else {
         inputValue = "" + num;
       }
       updateDisplay(inputValue);
     } else {
+      if (currentValue.includes(".") && num === ".") return;
       currentValue = currentValue + num;
       updateDisplay(currentValue);
     }
