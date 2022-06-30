@@ -15,6 +15,12 @@ function allClear() {
 }
 function input(num) {
   console.log("input:" + num);
+
+  //check for decimal
+  if (currentValue.includes(".") && num === ".") {
+    return;
+  }
+
   if (currentValue === "0") {
     if (num === ".") {
       currentValue = "0.";
