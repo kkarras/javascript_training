@@ -51,13 +51,15 @@ function operator(symbol) {
   curInput =
     curInput.indexOf(".") > -1 ? parseFloat(curInput) : parseInt(curInput);
 
+  console.log(currentOperator);
+
   if (currentOperator) {
     //if there is already an operator in play, update the current value and display
     if (currentOperator === "-") {
-      currentValue = "" + (curValue - curInput);
+      currentValue = "" + Math.round((curValue - curInput) * 1e12) / 1e12;
     }
     if (currentOperator === "+") {
-      currentValue = "" + (curValue + curInput);
+      currentValue = "" + Math.round((curValue + curInput) * 1e12) / 1e12;
     }
     if (currentOperator === "÷") {
       currentValue = "" + curValue / curInput;
@@ -65,6 +67,9 @@ function operator(symbol) {
     if (currentOperator === "x") {
       currentValue = "" + curValue * curInput;
     }
+    //reset current operator if it is equals
+    if (symbol === "=") currentOperator = null;
+    
     inputValue = null;
     console.log(currentValue);
     updateDisplay(currentValue);
@@ -82,4 +87,9 @@ function percent() {
   console.log("percent:" + currentValue);
   currentValue = "" + parseInt(currentValue) / 100;
   updateDisplay(currentValue);
+}
+
+Number.prototype.countDecimals = function () {
+  if(Math.floor(this.valueOf()) === this.valueOf()) return 0;
+  return this.toString().split(".")[1].length || 0; 
 }
