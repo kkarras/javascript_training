@@ -24,6 +24,10 @@ button {
     cursor: pointer;
 }
 
+.btn-wide {
+    width: 300px;
+}
+
 .darkGray {
     background-color: #333333;
     color: white;
