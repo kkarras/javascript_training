@@ -16,9 +16,6 @@ function allClear() {
 function input(num) {
   console.log("input:" + num);
 
-  //check for decimal
-  // if (currentValue.includes(".") && num === ".") return;
-
   if (currentValue === "0") {
     if (num === ".") {
       currentValue = "0.";
@@ -29,6 +26,7 @@ function input(num) {
   } else {
     if (currentOperator) {
       if (inputValue) {
+        //check if a decimal has already been input for this value
         if (inputValue.includes(".") && num === ".") return;
         inputValue = inputValue + num;
       } else {
@@ -36,6 +34,7 @@ function input(num) {
       }
       updateDisplay(inputValue);
     } else {
+      //check if a decimal has already been input for this value
       if (currentValue.includes(".") && num === ".") return;
       currentValue = currentValue + num;
       updateDisplay(currentValue);
