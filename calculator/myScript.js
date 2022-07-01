@@ -15,6 +15,7 @@ function allClear() {
 }
 function input(num) {
   console.log("input:" + num);
+
   if (currentValue === "0") {
     if (num === ".") {
       currentValue = "0.";
@@ -25,12 +26,16 @@ function input(num) {
   } else {
     if (currentOperator) {
       if (inputValue) {
+        //check if a decimal has already been input for this value
+        if (inputValue.includes(".") && num === ".") return;
         inputValue = inputValue + num;
       } else {
         inputValue = "" + num;
       }
       updateDisplay(inputValue);
     } else {
+      //check if a decimal has already been input for this value
+      if (currentValue.includes(".") && num === ".") return;
       currentValue = currentValue + num;
       updateDisplay(currentValue);
     }
@@ -49,10 +54,10 @@ function operator(symbol) {
   if (currentOperator) {
     //if there is already an operator in play, update the current value and display
     if (currentOperator === "-") {
-      currentValue = "" + (curValue - curInput);
+      currentValue = "" + Math.round((curValue - curInput) * 1e12) / 1e12;
     }
     if (currentOperator === "+") {
-      currentValue = "" + (curValue + curInput);
+      currentValue = "" + Math.round((curValue + curInput) * 1e12) / 1e12;
     }
     if (currentOperator === "÷") {
       currentValue = "" + curValue / curInput;
@@ -60,6 +65,9 @@ function operator(symbol) {
     if (currentOperator === "x") {
       currentValue = "" + curValue * curInput;
     }
+    //reset current operator if it is equals
+    if (symbol === "=") currentOperator = null;
+    
     inputValue = null;
     console.log(currentValue);
     updateDisplay(currentValue);
